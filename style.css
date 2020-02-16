@@ -10,7 +10,7 @@ body {
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background: rgb(17, 17, 17);
+    background: #111111;
 }
 
 a {
@@ -24,12 +24,24 @@ a {
     font-size: 20px;
     transition: 0.5s;
     overflow: hidden; /* fixes overlapping borders on hover event */
+
+    /* here's the interesting bit - CSS' reflect property. Support is terrible as of Feb 2020 though! */
+    -webkit-box-reflect: below 2px linear-gradient(transparent, #0003);
+}
+
+a:nth-child(1) {
+    filter: hue-rotate(115deg);
+}
+
+a:nth-child(3) {
+    filter: hue-rotate(270deg);
 }
 
 a:hover {
     background: #21ebff;
     color: #111;
     box-shadow: 0 0 50px #21ebff;
+    transition-delay: 0.3s;
 }
 
 a::before {
